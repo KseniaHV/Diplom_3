@@ -1,4 +1,4 @@
-package org.example.user;
+package org.example;
 
 public class CreateUser {
     private String name;
@@ -14,7 +14,7 @@ public class CreateUser {
 
     }
     public static CreateUser createdUser() {
-        CreateUser user = new CreateUser("Дмитрий16", "Dmitrii16@yandex.ru", "pass1234");
+        CreateUser user = new CreateUser("Дмитрий999", "Dmitrii999@yandex.ru", "pass1234");
         return user;
     }
     public String getName() {

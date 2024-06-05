@@ -1,4 +1,4 @@
-package regist;
+package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.rules.ExternalResource;
@@ -29,10 +29,10 @@ public class DriverRule extends ExternalResource {
 
     }
     private void initYandex(){
-    WebDriverManager.chromedriver().driverVersion("122.0.6261.128").setup();
+    WebDriverManager.chromedriver().driverVersion(System.getProperty("driver.version")).setup();
         var options = new ChromeOptions();
-        options.setBinary("/c:/Users/mshkh/AppData/Local/Yandex/YandexBrowser/Application/browser.exe");
-        driver = new ChromeDriver();
+        options.setBinary(System.getProperty("webdriver.yandex.bin"));
+        driver = new ChromeDriver(options);
     }
     public WebDriver getDriver(){
         return driver;
