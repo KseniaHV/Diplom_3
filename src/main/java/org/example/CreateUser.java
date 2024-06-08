@@ -14,7 +14,7 @@ public class CreateUser {
 
     }
     public static CreateUser createdUser() {
-        CreateUser user = new CreateUser("Дмитрий999", "Dmitrii999@yandex.ru", "pass1234");
+        CreateUser user = new CreateUser("Дмитрий600", "Dmitrii600@yandex.ru", "pass1234");
         return user;
     }
     public String getName() {

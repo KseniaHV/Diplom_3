@@ -21,10 +21,10 @@ public class MainPage {
     private final By ingredientSauces = By.cssSelector(".tab_tab__1SPyG:nth-child(2)");
     private final By ingredientBuns = By.cssSelector(".tab_tab__1SPyG:nth-child(1)");
     private final By ingredientFillings = By.cssSelector(".tab_tab__1SPyG:nth-child(3)");
-    private final By waitingShellfish = By.xpath(".//img[@alt='Мясо бессмертных моллюсков Protostomia']");
     private final By buttonArea = By.linkText("Личный Кабинет");
     private final By buttonRegistration = By.xpath("//a[@href='/register']");
     private final By loginButton = By.xpath("//a[@href='/login']");
+    private final By registrationLink = By.xpath("//a[text()='Зарегистрироваться']");
     private final By buttonRestore = By.xpath(".//a[text()='Восстановить пароль']");
     private String accessToken;
 
@@ -112,13 +112,10 @@ public class MainPage {
     }
     public void clickFillings(By ingredientFillings) {
         driver.findElement(ingredientFillings).click();
-        new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
-                .until(ExpectedConditions.visibilityOfElementLocated(waitingShellfish));
-
     }
     public void checkFillings(By ingredientFillings) {
         new WebDriverWait(driver, Duration.ofSeconds(EnvConfig.DEFAULT_TIMEOUT))
-                .until(ExpectedConditions.attributeContains(ingredientFillings, "class", "current"));  //Дожитается появления стиля
+                .until(ExpectedConditions.attributeContains(ingredientFillings, "class", "current"));  //Дожидается появления стиля
 
         String actualClassAttribute = driver.findElement(ingredientFillings).getAttribute("class"); //Проверяем, что стиль появился
 
@@ -159,7 +156,7 @@ public class MainPage {
 
     }
     public RegistrationPage clickRegistration() {
-        driver.findElement(buttonRestore).click();
+        driver.findElement(registrationLink).click();
         return new RegistrationPage(driver);
 
     }

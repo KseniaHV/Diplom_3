@@ -9,14 +9,14 @@ import org.openqa.selenium.WebDriver;
 import pages.*;
 public class PageTransitionTests {
 
-    public static final String EMAIL = "Dmitrii999@yandex.ru";
+    public static final String EMAIL = "Dmitrii600@yandex.ru";
     public static final String PASSWORD = "pass1234";
     @Rule
     public DriverRule driverRule = new DriverRule();
     private static String accessToken;
     private static final MethodApi check = new MethodApi();
-    @BeforeClass
-    public static void createUser() {
+    @Before
+    public void createUser() {
         CreateUser user = CreateUser.createdUser();
         check.userCreate(user);
     }
@@ -75,8 +75,8 @@ public class PageTransitionTests {
         main.waitLoadingPage();
         main.navigationLogoCheck();
     }
-    @AfterClass
-    public static void deleteUser() {
+    @After
+    public void deleteUser() {
         if (accessToken != null) {
             check.userDelete(accessToken);
         }

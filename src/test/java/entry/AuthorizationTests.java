@@ -8,14 +8,14 @@ import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import pages.*;
 public class AuthorizationTests {
-    private final String EMAIL = "Dmitrii999@yandex.ru";
+    private final String EMAIL = "Dmitrii600@yandex.ru";
     private final String PASSWORD = "pass1234";
     @Rule
     public DriverRule driverRule = new DriverRule();
     private static String accessToken;
     private static final MethodApi check = new MethodApi();
-    @BeforeClass
-    public static void createUser() {
+    @Before
+    public void createUser() {
         CreateUser user = CreateUser.createdUser();
         check.userCreate(user);
     }
@@ -89,8 +89,8 @@ public class AuthorizationTests {
         main.checkLog();
 
     }
-    @AfterClass
-    public static void deleteUser() {
+    @After
+    public void deleteUser() {
         if (accessToken != null) {
             check.userDelete(accessToken);
         }

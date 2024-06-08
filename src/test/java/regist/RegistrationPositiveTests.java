@@ -7,8 +7,8 @@ import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import pages.*;
 public class RegistrationPositiveTests {
-    public static final String NAME = "Дмитрий999";
-    public static final String EMAIL = "Dmitrii999@yandex.ru";
+    public static final String NAME = "Дмитрий600";
+    public static final String EMAIL = "Dmitrii600@yandex.ru";
     public static final String PASSWORD = "pass1234";
     @Rule
     public DriverRule driverRule = new DriverRule();
@@ -43,8 +43,8 @@ public class RegistrationPositiveTests {
         main.getToken();
         accessToken = main.getAccessToken();
     }
-    @AfterClass
-    public static void deleteUser() {
+    @After
+    public void deleteUser() {
         if (accessToken != null) {
             check.userDelete(accessToken);
         }
